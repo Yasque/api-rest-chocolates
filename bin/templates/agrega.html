@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--  muestra un menñsaje (parahacer pruebas) -->
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<table >
+				<tr><td>Nombre:</td><td><input type="text" name="nombre" /></td></tr>
+				<tr><td>Descripcion:</td><td><input type="text" name="descripcion" /></td></tr>
+				<tr><td>Cantidad:</td><td><input type="number" name="cantidad" /></td></tr>
+				<tr><td>Archivo:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Agregar" /></td></tr>
+			</table>
+		</form>
+	</div>
+	
+<!-- debug: muestra los archivos guardados  -->
+	<div>
+		<ul>
+			<li th:each="file : ${files}">
+				<img th:src="${file}"/><a th:href="${file}" th:text="${file}" />
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>
